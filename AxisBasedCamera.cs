@@ -20,14 +20,6 @@ public class AxisBasedCamera : PlayerCamera {
             RotateCamera(cameraRotateStepAngle);
         }
 
-        //This WIP code is if you want a multidimensional follow camera that's not axis limited
-
-        //float diffAngle = playerMovement.transform.eulerAngles.y - VectorPlus.VectorToDegree(GetLookDirection());
-        //offset = Quaternion.Euler(0, diffAngle, 0) * offset;
-        //Debug.Log(diffAngle, this);
-
-        //
-
         desiredPosition = playerMovement.transform.position + offset;
         transform.position = Vector3.Lerp(transform.position, desiredPosition, cameraSmoothness * Time.deltaTime);
         transform.LookAt(playerMovement.transform.position + playerViewOffset);
